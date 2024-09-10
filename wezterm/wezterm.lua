@@ -8,8 +8,8 @@ local act = wezterm.action
 
 -- For example, changing the color scheme:
 config.color_scheme = "HaX0R_BLUE"
-config.font = wezterm.font("Menlo")
-config.font_size = 22.0
+config.font = wezterm.font("RecMonoLinear Nerd Font Mono")
+config.font_size = 14.0
 config.line_height = 1.3
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }

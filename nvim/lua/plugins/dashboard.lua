@@ -1,6 +1,6 @@
 return {
-  'nvimdev/dashboard-nvim',
-  event = 'VimEnter',
+  "nvimdev/dashboard-nvim",
+  event = "VimEnter",
   opts = function()
     local logo = [[
 ██    ██ ██ ██      ███████    ███    ██ ██    ██ ██ ███    ███
@@ -23,7 +23,7 @@ return {
         header = vim.split(logo, "\n"),
         -- stylua: ignore
         center = {
-          { action = "Telescope file_browser", desc = "Files", icon = " ", key = "f" },
+          { action = "Telescope file_browser", desc = " Files", icon = " ", key = "f" },
           { action = "ene | startinsert", desc = " New File", icon = " ", key = "n" },
           { action = "Telescope oldfiles", desc = " Recent Files", icon = " ", key = "r" },
           { action = "Telescope live_grep", desc = " Find Text", icon = " ", key = "g" },
@@ -57,5 +57,5 @@ return {
     return opts
   end,
   config = true,
-  dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+  dependencies = { { "nvim-tree/nvim-web-devicons" } },
 }
