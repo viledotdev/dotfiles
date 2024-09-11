@@ -1,3 +1,24 @@
-# Created by newuser for 5.9
-#
+# Función para iniciar el agente SSH automáticamente
+start_ssh_agent() {
+  # Verifica si la variable SSH_AGENT_PID está vacía
+  if [ -z "$SSH_AGENT_PID" ]; then
+    # Comprueba si ya existe un archivo agent.env con las variables del agente
+    if [ -f "$HOME/.ssh/agent.env" ]; then
+      source "$HOME/.ssh/agent.env" > /dev/null
+    fi
+
+    # Verifica si el proceso del agente SSH está corriendo
+    if ! ps -p $SSH_AGENT_PID > /dev/null 2>&1; then
+      # Inicia un nuevo agente y guarda sus variables en agent.env
+      eval $(ssh-agent -s) > "$HOME/.ssh/agent.env"
+      # Añade la clave privada al agente, ajusta la ruta según tu configuración
+      ssh-add ~/.ssh/github  # Cambia la ruta si tu clave es diferente
+    fi
+  fi
+}
+
+# Llama a la función para iniciar el agente SSH
+start_ssh_agent
+
+# Alias para ejecutar Neovim con sudo conservando el entorno del usuario
 alias sudonvim='sudo -E nvim'
