@@ -11,4 +11,5 @@ colors = {
     "color2": "#E06C75",
     "color3": "#61AFEF",
     "color4": "#98C379",
+    "color5": "#98AAF9",
 }

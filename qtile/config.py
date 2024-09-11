@@ -1,17 +1,20 @@
+import os
+import subprocess
+
+from libqtile import hook
+
 from groups import groups
 from keys import keys
 from layouts import layouts
 from mouse import mouse
 from screens import screens
 
-widget_defaults = {
-    "font": "RecMonoLinear Nerd Font Mono",
-    "fontsize": 14,
-    "padding": 3,
-}
-extension_defaults = widget_defaults.copy()
 
-# Configuraciones adicionales
+@hook.subscribe.startup_once
+def autostart():
+    script_path = os.path.expanduser("~/dotfiles/qtile/starter.sh")
+    subprocess.run(["sh", script_path], check=True)
+
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # Para configuraciones de grupo
