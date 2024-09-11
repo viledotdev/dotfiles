@@ -1,11 +1,12 @@
-from keys import groups, keys
+from groups import groups
+from keys import keys
 from layouts import layouts
 from mouse import mouse
 from screens import screens
 
 widget_defaults = {
     "font": "RecMonoLinear Nerd Font Mono",
-    "fontsize": 12,
+    "fontsize": 14,
     "padding": 3,
 }
 extension_defaults = widget_defaults.copy()

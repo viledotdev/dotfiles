@@ -1,4 +1,4 @@
 from libqtile import bar
 from widgets import widgets
 
-topbar = bar.Bar(widgets, 30, background="#FFF")
+topbar = bar.Bar(widgets, 30, opacity=0.95)

@@ -1,11 +1,18 @@
 from const import MOD, TERMINAL
-from libqtile.config import Group, Key
+from libqtile.config import Key
 from libqtile.lazy import lazy
 
 keys = [
-    Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Lanza la terminal"),
-    Key([MOD], "d", lazy.window.kill(), desc="Cierra la ventana activa"),
-    Key([MOD], "n", lazy.spawn("brave"), desc="Lanza el navegador Brave"),
+    Key(
+        [MOD],
+        "Return",
+        lazy.spawn(TERMINAL),
+        desc="Lanza la terminal",
+    ),
+    Key([MOD], "q", lazy.window.kill(), desc="Cierra la ventana activa"),
+    Key([MOD], "b", lazy.spawn("brave"), desc="Lanza el navegador Brave"),
+    Key([MOD], "Space", lazy.spawn("rofi -show run")),
+    Key([MOD, "shift"], "Space", lazy.spawn("rofi -show")),
     Key(
         [MOD],
         "m",
@@ -37,24 +44,19 @@ keys = [
     Key([MOD], "Tab", lazy.next_layout(), desc="Cambia entre los layouts disponibles"),
     Key([MOD, "shift"], "r", lazy.restart(), desc="Reinicia Qtile"),
     Key([MOD, "shift"], "q", lazy.shutdown(), desc="Cierra Qtile"),
+    # Volumen
+    Key(
+        [],
+        "XF86AudioLowerVolume",
+        lazy.spawn("pamixer --decrease 5"),
+    ),
+    Key(
+        [],
+        "XF86AudioRaiseVolume",
+        lazy.spawn("pamixer --increase 5"),
+    ),
+    Key([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),
+    # Brillo
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
-
-groups = [Group(i) for i in "123456789"]
-
-for i in groups:
-    keys.extend(
-        [
-            Key(
-                [MOD],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc=f"Ir al grupo {i.name}",
-            ),
-            Key(
-                [MOD, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc=f"Mueve ventana al grupo {i.name}",
-            ),
-        ]
-    )
