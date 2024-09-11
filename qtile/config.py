@@ -1,11 +1,10 @@
 import os
 import subprocess
 
-from libqtile import hook
-
 from groups import groups
 from keys import keys
 from layouts import layouts
+from libqtile import hook
 from mouse import mouse
 from screens import screens
 
@@ -13,7 +12,12 @@ from screens import screens
 @hook.subscribe.startup_once
 def autostart():
     script_path = os.path.expanduser("~/dotfiles/qtile/starter.sh")
+    wallpaper_path = os.path.expanduser("~/dotfiles/assets/wallpaper.jpg")
     subprocess.run(["sh", script_path], check=True)
+    subprocess.run(
+        ["feh", "--bg-scale", wallpaper_path],
+        check=True,
+    )
 
 
 dgroups_key_binder = None
