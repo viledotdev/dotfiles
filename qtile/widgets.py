@@ -48,8 +48,24 @@ def workspaces():
             disable_drag=True,
         ),
         separator(),
-        widget.WindowName(**base(fg="focus"), fontsize=14, padding=8),
-        separator(),
+        widget.Pomodoro(
+            **base(bg="dark"),
+            color_inactive="#952021",  # Color cuando está inactivo
+            color_active="#F9E859",  # Color cuando está en modo trabajo
+            color_break="#3F8940",  # Color cuando está en modo descanso
+            prefix_inactive=" ",  # Texto cuando está inactivo
+            prefix_active=" ",  # Texto cuando está en trabajo
+            prefix_paused=" ",  # Texto cuando está en trabajo
+            prefix_break=" ",  # Texto cuando está en descanso
+            fontsize=24,
+            length_pomodori=25,  # Duración del periodo de trabajo en minutos
+            length_short_break=5,  # Duración del descanso corto en minutos
+            length_long_break=30,  # Duración del descanso largo en minutos
+            num_pomodori=4,  # Número de pomodoros antes de un descanso largo
+        ),
+        widget.Spacer(
+            **base(),
+        ),
     ]
 
 
@@ -73,23 +89,6 @@ def baticon(bat=0, fontsize=22):
 
 widgets = [
     *workspaces(),
-    separator(),
-    widget.Pomodoro(
-        **base(bg="dark"),
-        color_inactive="#952021",  # Color cuando está inactivo
-        color_active="#F9E859",  # Color cuando está en modo trabajo
-        color_break="#3F8940",  # Color cuando está en modo descanso
-        prefix_inactive=" Start",  # Texto cuando está inactivo
-        prefix_active=" ",  # Texto cuando está en trabajo
-        prefix_paused=" Paused",  # Texto cuando está en trabajo
-        prefix_break=" ",  # Texto cuando está en descanso
-        fontsize=26,
-        length_pomodori=25,  # Duración del periodo de trabajo en minutos
-        length_short_break=5,  # Duración del descanso corto en minutos
-        length_long_break=30,  # Duración del descanso largo en minutos
-        num_pomodori=4,  # Número de pomodoros antes de un descanso largo
-    ),
-    separator(),
     powerline("color4", "dark"),
     icon(bg="color4", text=" "),  # Icon: nf-fa-download
     widget.CheckUpdates(
