@@ -15,12 +15,13 @@ start_ssh_agent() {
     ssh-add ~/.ssh/github
   fi
 }
-start_starship(){
+start_starship() {
     eval "$(starship init zsh)"
 }
 
+OS_ICON=""
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "Loading macOS zsh config..."
+    echo "Loading MacOS zsh config..."
 
     export PATH="/opt/homebrew/bin:$PATH"
 
@@ -29,7 +30,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias oa='open -a'
     alias updall='brew update && brew upgrade'
 
-    echo "Loaded macOS"
+    echo "Loaded MacOS"
+    OS_ICON=""
 
 
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -38,12 +40,17 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
         echo "Loading Arch zsh config..."
 
         alias updall='sudo pacman -Syu'
+
+        echo "Loaded Arch"
+        OS_ICON="󰣇"
     elif command -v apt &>/dev/null; then
-        echo "Loading Debian zsh config..."
+        echo "Loading Ubuntu zsh config..."
 
         alias updall='sudo apt update && sudo apt upgrade'
 	alias i='sudo apt install'
 
+        echo "Loaded Ubuntu"
+        OS_ICON="󰕈"
     fi
 
     echo "Loading linux zsh config..."
@@ -52,14 +59,16 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
     alias sudonvim='sudo -E nvim'
     alias ll='ls -lah --color=auto'
+
+    echo "Loaded linux"
 fi
 
-echo "Loading unix zsh config"
+echo "Loading Unix zsh config..."
 
 start_ssh_agent
 if command -v starship &> /dev/null; then
 	echo "Launching starship..."
-        start_starship()
+        start_starship
 else
 	echo "Starship is not installed"
 fi
@@ -69,3 +78,6 @@ export EDITOR='nvim'
 # Aliases
 alias ..='cd ..'
 alias ...='cd ../..'
+
+echo "Loaded Unix"
+echo "Welcome aboard, $USER! $OS_ICON"
