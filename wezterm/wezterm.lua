@@ -29,7 +29,7 @@ config = {
 	-- For example, changing the color scheme:
 	color_scheme = "Tokio Night",
 	font = wezterm.font("RecMonoLinear Nerd Font Mono"),
-	font_size = 22.0,
+	font_size = 12.0,
 	line_height = 1.25,
 
 	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
