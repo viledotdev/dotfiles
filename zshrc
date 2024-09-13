@@ -16,56 +16,31 @@ start_ssh_agent() {
   fi
 }
 start_starship() {
-    eval "$(starship init zsh)"
-}
-if [[ "$OSTYPE" == "darwin"* ]]; then
-
-    export PATH="/opt/homebrew/bin:$PATH"
-
-    alias ll='ls -laG'
-    alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
-    alias oa='open -a'
-    alias updall='brew update && brew upgrade'
-
-
-
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-
-    if command -v pacman &>/dev/null; then
-
-        alias updall='sudo pacman -Syu'
-
-    elif command -v apt &>/dev/null; then
-
-        alias updall='sudo apt update && sudo apt upgrade'
-	alias i='sudo apt install'
-
+    if command -v starship &> /dev/null; then
+    	eval "$(starship init zsh)"
+    else
+    	echo "Starship is not installed"
     fi
+}
+start_neofetch() {
+    if command -v neofetch &> /dev/null; then
+        neofetch --source ~/Development/dotfiles/assets/vile.txt
+    else	
+        echo "Neofetch is not installed"
+    fi
+}
 
-
-    export PATH="/usr/local/bin:$PATH"
-
-    alias sudonvim='sudo -E nvim'
-    alias ll='ls -lah --color=auto'
-
-fi
-
-
-start_ssh_agent
-if command -v starship &> /dev/null; then
-        start_starship
-else
-	echo "Starship is not installed"
-fi
-
-if command -v neofetch &> /dev/null; then
-    neofetch --source ~/dotfiles/assets/vile.txt
-else	
-    echo "Neofetch is not installed"
-fi
-
+export PATH="/opt/homebrew/bin:$PATH"
 export EDITOR='nvim'
 
-# Aliases
+alias ll='ls -laG'
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+alias oa='open -a'
+alias updall='brew update && brew upgrade'
 alias ..='cd ..'
 alias ...='cd ../..'
+
+start_ssh_agent
+start_starship
+start_neofetch
+
