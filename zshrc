@@ -18,7 +18,6 @@ start_ssh_agent() {
 start_starship() {
     eval "$(starship init zsh)"
 }
-OS_ICON=""
 if [[ "$OSTYPE" == "darwin"* ]]; then
 
     export PATH="/opt/homebrew/bin:$PATH"
@@ -28,7 +27,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias oa='open -a'
     alias updall='brew update && brew upgrade'
 
-    OS_ICON=""
 
 
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -37,13 +35,11 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
         alias updall='sudo pacman -Syu'
 
-        OS_ICON="󰣇"
     elif command -v apt &>/dev/null; then
 
         alias updall='sudo apt update && sudo apt upgrade'
 	alias i='sudo apt install'
 
-        OS_ICON="󰕈"
     fi
 
 
@@ -63,7 +59,7 @@ else
 fi
 
 if command -v neofetch &> /dev/null; then
-    neofetch
+    neofetch --source ~/dotfiles/assets/vile.txt
 else	
     echo "Neofetch is not installed"
 fi
@@ -73,5 +69,3 @@ export EDITOR='nvim'
 # Aliases
 alias ..='cd ..'
 alias ...='cd ../..'
-
-echo "Welcome aboard, $USER! $OS_ICON"
