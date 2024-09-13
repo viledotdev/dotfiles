@@ -18,13 +18,14 @@ start_ssh_agent() {
 start_starship() {
     if command -v starship &> /dev/null; then
     	eval "$(starship init zsh)"
+	export STARSHIP_CONFIG=~/.config/starship/starship.toml
     else
     	echo "Starship is not installed"
     fi
 }
 start_neofetch() {
     if command -v neofetch &> /dev/null; then
-        neofetch --source ~/Development/dotfiles/assets/vile.txt
+        neofetch --source ~/Development/dotfiles/_assets/vile.txt
     else	
         echo "Neofetch is not installed"
     fi
