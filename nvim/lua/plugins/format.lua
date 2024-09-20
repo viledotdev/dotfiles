@@ -2,6 +2,18 @@ return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = {
+    formatters = {
+      shfmt = {
+        args = {
+          "-i",
+          "2", -- Cambia el número para ajustar la cantidad de espacios de indentación
+          "-ci", -- Indentación en listas de comandos dentro de bucles
+          "-bn", -- Llaves en la misma línea
+          "-sr", -- Simplificar redirecciones
+          "-s", -- Ordenar imports
+        },
+      },
+    },
     formatters_by_ft = {
       javascript = { "prettier" },
       typescript = { "prettier" },
@@ -16,6 +28,8 @@ return {
       graphql = { "prettier" },
       lua = { "stylua" },
       python = { "isort", "black" },
+      sh = { "shfmt" },
+      bash = { "shfmt" },
     },
     format_on_save = {
       lsp_fallback = true,
