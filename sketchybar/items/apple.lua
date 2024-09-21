@@ -4,6 +4,7 @@ local colors = require("colors")
 local popup_toggle = "sketchybar --set $NAME popup.drawing=toggle"
 
 local apple_logo = sbar.add("item", {
+	position = "right",
 	padding_right = 15,
 	click_script = popup_toggle,
 	icon = {
