@@ -1,6 +1,18 @@
 local colors = require("colors")
 local icon_map = require("icon_map")
 
+local n_space_icon = { "􀀻", "􀀽", "􀀿", "􀁁", "􀁃", "􀁅", "􀁇", "􀁉", "􀁋" }
+
+sbar.add("item", {
+	padding_right = 10,
+	icon = {
+		font = {
+			size = 22.0,
+		},
+	},
+	label = { drawing = false },
+})
+
 local function get_apps_table(apps, delimiter)
 	local result = {}
 	local pattern = "([^" .. delimiter .. "]+)"
@@ -14,9 +26,20 @@ end
 
 local function space_selection(env)
 	local wp_num = string.gsub(env.NAME, "item_", "")
-	local workspace = tonumber(wp_num) - 1
+	local workspace = tonumber(wp_num)
 	local selected = workspace == tonumber(env.CURRENT)
 	local background_color = selected and colors.red or colors.bg2
+	local hidden = tonumber(env.CURRENT) > 6
+	local space_icon_color = hidden and colors.blue or colors.red
+
+	sbar.set("item_0", {
+		icon = {
+			string = n_space_icon[tonumber(env.CURRENT)],
+			color = space_icon_color,
+		},
+		label = { highlight = selected },
+		background = { border_color = background_color },
+	})
 
 	sbar.set(env.NAME, {
 		icon = {
@@ -28,9 +51,8 @@ local function space_selection(env)
 end
 
 local function icon_display(env)
-	-- For some reason env.NAME index starts at 2
 	local wp_num = string.gsub(env.NAME, "item_", "")
-	local workspace = tonumber(wp_num) - 1
+	local workspace = tonumber(wp_num)
 	local icons = ""
 	local get_apps = "aerospace list-windows --workspace " .. workspace .. " --format %{app-name}"
 
@@ -51,7 +73,7 @@ local function icon_display(env)
 	end)
 end
 
-for i = 1, 9, 1 do
+for i = 1, 6, 1 do
 	local space = sbar.add("item", {
 		icon = {
 			padding_left = 15,
@@ -76,18 +98,3 @@ for i = 1, 9, 1 do
 	space:subscribe("front_app_switched", icon_display)
 	space:subscribe("app_space_changed", icon_display)
 end
-
-sbar.add("item", {
-	padding_left = 10,
-	padding_right = 8,
-	icon = {
-		string = "􀆊",
-		font = {
-			style = "Heavy",
-			size = 16.0,
-		},
-		color = colors.green,
-	},
-	label = { drawing = false },
-	associated_display = "active",
-})

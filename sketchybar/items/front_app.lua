@@ -11,9 +11,9 @@ local front_app = sbar.add("item", {
 })
 
 front_app:subscribe("front_app_switched", function(env)
-	print(env.INFO)
 	if env.INFO ~= nil then
 		sbar.set(env.NAME, {
+			position = "q",
 			icon = {
 				font = "sketchybar-app-font:Regular:16.0",
 				color = colors.green,
@@ -24,7 +24,7 @@ front_app:subscribe("front_app_switched", function(env)
 			},
 			padding_left = 5,
 			background = { color = colors.black, border_color = colors.red },
-			padding_right = 5,
+			padding_right = 15,
 			label = {
 				color = colors.green,
 				padding_right = 15,
