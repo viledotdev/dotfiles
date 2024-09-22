@@ -11,7 +11,6 @@ function media_change(env)
 	local color = (env.INFO.state == "playing") and colors.magenta or colors.grey
 	local playing = (env.INFO.state == "playing") and true or false
 	if whitelist[env.INFO.app] then
-		print(playing)
 		media:set({
 			icon = {
 				font = "sketchybar-app-font:Regular:16.0",
