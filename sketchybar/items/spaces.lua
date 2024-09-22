@@ -64,7 +64,7 @@ local function icon_display(env)
 		for app in pairs(apps) do
 			icons = icons .. icon_map.get_icon(app)
 		end
-		icons = string.gsub(icons, "::", ":     :")
+		icons = string.gsub(icons, "::", ":  :")
 		sbar.set(env.NAME, {
 			icon = {
 				string = icons,
