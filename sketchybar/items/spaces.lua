@@ -27,18 +27,19 @@ end
 local function space_selection(env)
 	local wp_num = string.gsub(env.NAME, "item_", "")
 	local workspace = tonumber(wp_num)
-	local selected = workspace == tonumber(env.CURRENT)
-	local background_color = selected and colors.red or colors.bg2
+	local current = tonumber(env.CURRENT)
+	local selected = workspace == current
+	local border = selected and colors.white or colors.bg2
 	local hidden = tonumber(env.CURRENT) > 6
-	local space_icon_color = hidden and colors.blue or colors.red
+	local space_icon_color = hidden and colors.yellow or colors.blue
 
 	sbar.set("item_0", {
 		icon = {
-			string = n_space_icon[tonumber(env.CURRENT)],
+			string = n_space_icon[current],
 			color = space_icon_color,
 		},
 		label = { highlight = selected },
-		background = { border_color = background_color },
+		background = { border_color = border },
 	})
 
 	sbar.set(env.NAME, {
@@ -46,7 +47,7 @@ local function space_selection(env)
 			highlight = selected,
 		},
 		label = { highlight = selected },
-		background = { border_color = background_color },
+		background = { border_color = border },
 	})
 end
 
@@ -80,17 +81,12 @@ for i = 1, 6, 1 do
 			padding_right = 15,
 			font = "sketchybar-app-font:Regular:16.0",
 			color = colors.grey,
-			highlight_color = colors.green,
+			highlight_color = colors.white,
 		},
 		padding_left = 5,
 		background = { color = colors.bg1, border_color = colors.bg2 },
 		padding_right = 5,
 		label = {
-			padding_right = 20,
-			color = colors.grey,
-			highlight_color = colors.white,
-			font = "sketchybar-app-font:Regular:16.0",
-			y_offset = -1,
 			drawing = false,
 		},
 	})
