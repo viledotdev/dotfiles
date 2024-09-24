@@ -12,6 +12,7 @@ local icon_map = {
 	["终端"] = ":terminal:",
 	["WezTerm"] = ":wezterm:",
 	["YouTube"] = ":playing:",
+	["Yaak"] = ":postman:",
 	["Reddit"] = ":godot:",
 	["Books"] = ":book:",
 	["ChatGPT"] = ":openai:",
