@@ -31,22 +31,31 @@ start_neofetch() {
     fi
 }
 
+export PATH=~/.bin:$PATH
 export PATH="/opt/homebrew/bin:$PATH"
 export EDITOR='nvim'
 
 alias ll='ls -laG'
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 alias oa='open -a'
+# Neovim
 alias nv='nvim'
 alias nvdot='cd ~/Development/dotfiles && nvim'
+alias nvc='cd ~/Development/dotfiles/nvim && nvim'
+# Brew
 alias updall='brew update && brew upgrade'
 alias buni='brew uninstall'
 alias bi='brew install'
 alias bt='brew tap'
+# Miscellaneous
 alias c='clear'
 alias neo='clear && neofetch --source ~/Development/dotfiles/_assets/vile.txt'
 alias ..='cd ..'
 alias ...='cd ../..'
+# Obsidian shortcuts
+alias oo='cd $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vile'
+alias oor='nvim $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vile/inbox/*.md'
+alias nvoo='cd $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vile && nvim'
 
 start_ssh_agent
 start_starship
