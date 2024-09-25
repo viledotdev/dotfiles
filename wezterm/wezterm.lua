@@ -35,8 +35,8 @@ config = {
 	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = {
 		-- Pane config
-		{ key = "|", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-		{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+		{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+		{ key = "z", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 		{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
 		{ key = "t", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 		{ key = "n", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
