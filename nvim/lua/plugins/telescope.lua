@@ -106,14 +106,36 @@ return {
       end,
       desc = "Telescope file browser",
     },
-    -- Git
+    -- Obsidian
     {
-      "<leader>gff",
+      "<leader>tos",
       function()
-        require("telescope.builtin").git_files({ show_untracked = true })
+        require("telescope.builtin").live_grep({
+          search_dirs = { "/Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/notes" },
+        })
       end,
-      desc = "Telescope Git Files",
+      desc = "Obsidian search in files",
     },
+    {
+      "<leader>toth",
+      function()
+        require("telescope").extensions.file_browser.file_browser({
+          search_dirs = "/Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/notes",
+          select_buffer = true,
+        })
+      end,
+      desc = "Obsidian file browser",
+    },
+    {
+      "<leader>to<leader>",
+      function()
+        require("telescope.builtin").find_files({
+          search_dirs = { "/Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/notes" },
+        })
+      end,
+      desc = "Obsidian find files",
+    },
+    -- Git
     {
       "<leader>gs",
       function()

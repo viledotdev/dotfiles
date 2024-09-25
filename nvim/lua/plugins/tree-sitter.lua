@@ -9,11 +9,13 @@ return {
       "lua",
       "luadoc",
       "javascript",
+      "markdown",
+      "markdown_inline",
       highlight = {
-        enable = true
+        enable = true,
       },
       indent = {
-        enable = true
+        enable = true,
       },
       textobjects = {
         select = {
@@ -25,10 +27,10 @@ return {
             ["ac"] = "@conditional.outer",
             ["ic"] = "@conditional.inner",
             ["al"] = "@loop.inner",
-            ["il"] = "@loop.inner"
-          }
-        }
-      }
-    }
-  }
+            ["il"] = "@loop.inner",
+          },
+        },
+      },
+    },
+  },
 }
