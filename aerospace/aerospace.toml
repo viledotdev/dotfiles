@@ -23,17 +23,17 @@ on-focus-changed = [
 
 enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
-accordion-padding = 30
+accordion-padding = 20
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
  
 [gaps]
-inner.horizontal = 10
-inner.vertical =   10
-outer.left =       10
-outer.bottom =     10
-outer.top =        [{monitor.'^built-in retina display$' = 20 }, 52]
-outer.right =      10
+inner.horizontal = 5
+inner.vertical =   5
+outer.left =       0
+outer.bottom =     0
+outer.top =        0#[{monitor.'^built-in retina display$' = 20 }, 52]
+outer.right =      0
 
 [mode.main.binding]
 ctrl-period = 'layout tiles horizontal vertical'
@@ -53,14 +53,14 @@ cmd-shift-minus = 'resize smart -50'
 cmd-shift-equal = 'resize smart +50'
 cmd-shift-space = 'fullscreen' 
 
-cmd-ctrl-left = ['join-with left', 'mode main']
-cmd-ctrl-down = ['join-with down', 'mode main']
-cmd-ctrl-up = ['join-with up', 'mode main']
-cmd-ctrl-right = ['join-with right', 'mode main']
-cmd-ctrl-f = ['layout floating tiling', 'mode main'] 
+cmd-alt-left = ['join-with left', 'mode main']
+cmd-alt-down = ['join-with down', 'mode main']
+cmd-alt-up = ['join-with up', 'mode main']
+cmd-alt-right = ['join-with right', 'mode main']
+cmd-alt-f = ['layout floating tiling', 'mode main'] 
 
-cmd-alt-right = 'workspace --wrap-around next'
-cmd-alt-left = 'workspace --wrap-around prev'
+cmd-ctrl-right = 'workspace --wrap-around next'
+cmd-ctrl-left = 'workspace --wrap-around prev'
 
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
