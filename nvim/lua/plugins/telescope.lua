@@ -1,5 +1,8 @@
+---@diagnostic disable: param-type-mismatch
+local obsidianPath = "/Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Vile/notes"
 return {
   "nvim-telescope/telescope.nvim",
+
   event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -28,7 +31,6 @@ return {
         override_generic_sorter = true, -- override the generic sorter
         override_file_sorter = true, -- override the file sorter
         case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-        -- the default case_mode is "smart_case"
       },
     },
   },
@@ -44,6 +46,16 @@ return {
         require("telescope.builtin").grep_string()
       end,
       desc = "Search for string on current directory",
+    },
+    {
+      "<leader>tcg",
+      function()
+        require("telescope.builtin").find_files({
+          prompt_title = "Lazy packages",
+          cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
+        })
+      end,
+      desc = "Find files inside lazy installed plugins",
     },
     {
       "<leader>cmd",
@@ -70,7 +82,7 @@ return {
       "<leader>tp",
       function()
         require("telescope.builtin").find_files({
-          prompt_title = "Plugins",
+          prompt_title = "Plugins on " .. vim.fn.stdpath("config") .. "/lua/plugins",
           cwd = vim.fn.stdpath("config") .. "/lua/plugins",
           attach_mappings = function(_, map)
             local actions = require("telescope.actions")
@@ -102,7 +114,10 @@ return {
     {
       "<leader>th",
       function()
-        require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
+        require("telescope").extensions.file_browser.file_browser({
+          path = "%:h:p",
+          select_buffer = true,
+        })
       end,
       desc = "Telescope file browser",
     },
@@ -110,8 +125,9 @@ return {
     {
       "<leader>tos",
       function()
+        print(obsidianPath)
         require("telescope.builtin").live_grep({
-          search_dirs = { "/Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/notes" },
+          search_dirs = { obsidianPath },
         })
       end,
       desc = "Obsidian search in files",
@@ -120,7 +136,7 @@ return {
       "<leader>toth",
       function()
         require("telescope").extensions.file_browser.file_browser({
-          search_dirs = "/Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/notes",
+          path = obsidianPath,
           select_buffer = true,
         })
       end,
@@ -129,9 +145,7 @@ return {
     {
       "<leader>to<leader>",
       function()
-        require("telescope.builtin").find_files({
-          search_dirs = { "/Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/notes" },
-        })
+        require("telescope.builtin").find_files({})
       end,
       desc = "Obsidian find files",
     },

@@ -25,7 +25,8 @@ start_starship() {
 }
 start_neofetch() {
     if command -v neofetch &> /dev/null; then
-        neofetch --source ~/Development/dotfiles/_assets/vile.txt
+        # neofetch --source ~/Development/dotfiles/_assets/vile.txt
+	neofetch
     else	
         echo "Neofetch is not installed"
     fi
@@ -49,7 +50,13 @@ alias bi='brew install'
 alias bt='brew tap'
 # Miscellaneous
 alias c='clear'
-alias neo='clear && neofetch --source ~/Development/dotfiles/_assets/vile.txt'
+alias dock='open /Applications/Docker.app/'
+alias disc='open /Applications/Discord.app/'
+alias crm='cd ~/Development/crm/'
+alias crmb='cd ~/Development/crm/backend/'
+alias crmf='cd ~/Development/crm/frontend/'
+#alias neo='clear && neofetch --source ~/Development/dotfiles/_assets/vile.txt'
+alias neo='clear && neofetch'
 alias ..='cd ..'
 alias ...='cd ../..'
 # Obsidian shortcuts
