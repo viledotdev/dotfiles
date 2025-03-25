@@ -51,6 +51,19 @@ return {
         },
       },
     })
+    require("lspconfig").gopls.setup({
+      cmd = { "gopls" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
+      settings = {
+        gopls = {
+          analyses = {
+            unusedparams = true,
+          },
+          staticcheck = true,
+        },
+      },
+    })
     require("lspconfig").ts_ls.setup({
       on_attach = on_attach,
       capabilities = capabilities,

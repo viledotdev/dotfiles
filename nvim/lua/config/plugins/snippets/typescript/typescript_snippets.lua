@@ -5,9 +5,9 @@ local i = ls.insert_node
 
 return {
   s('clog"', {
-    t('console.log("'),
+    t({ 'console.log("' }),
     i(1),
-    t('")'),
+    t({ '")' }),
   }),
   s("clog", {
     t("console.log("),

@@ -8,7 +8,8 @@ kmap.set("n", "<leader>s", ":%s#", { desc = "Open replace mode" })
 
 -- mod on all modes
 kmap.set("", "<leader>lk", ":WhichKey <cr>", { desc = "List keybindings" })
-
+-- go
+kmap.set("n", "<leader>god", ":go doc")
 -- obsidian
 -- navigate to vault
 kmap.set("n", "<leader>oo", ":cd /Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Vile<cr>")
