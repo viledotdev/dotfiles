@@ -23,12 +23,11 @@ start_starship() {
     	echo "Starship is not installed"
     fi
 }
-start_neofetch() {
-    if command -v neofetch &> /dev/null; then
-        # neofetch --source ~/Development/dotfiles/_assets/vile.txt
-	neofetch
+start_fastfetch() {
+    if command -v fastfetch &> /dev/null; then
+	fastfetch
     else	
-        echo "Neofetch is not installed"
+        echo "Fastfetch is not installed"
     fi
 }
 
@@ -39,6 +38,8 @@ export EDITOR='nvim'
 alias ll='ls -laG'
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 alias oa='open -a'
+#Go aliases
+alias gt='go test -bench=. -benchmem -cover'
 # Neovim
 alias nv='nvim'
 alias nvdot='cd ~/Development/dotfiles && nvim'
@@ -56,15 +57,33 @@ alias crm='cd ~/Development/crm/'
 alias crmb='cd ~/Development/crm/backend/'
 alias crmf='cd ~/Development/crm/frontend/'
 #alias neo='clear && neofetch --source ~/Development/dotfiles/_assets/vile.txt'
-alias neo='clear && neofetch'
+alias neo='clear && fastfetch'
 alias ..='cd ..'
 alias ...='cd ../..'
 # Obsidian shortcuts
 alias oo='cd $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vile'
 alias oor='nvim $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vile/inbox/*.md'
 alias nvoo='cd $HOME/library/Mobile\ Documents/iCloud~md~obsidian/Documents/Vile && nvim'
+#Apps
+export PATH=$PATH:/usr/local/go/bin
+#java
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="$JAVA_HOME/bin:$PATH"
+
 
 start_ssh_agent
 start_starship
-start_neofetch
+#start_fastfetch
 
+autoload -Uz compinit
+compinit
+
+# pnpm
+export PNPM_HOME="/Users/victor/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

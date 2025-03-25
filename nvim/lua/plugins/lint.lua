@@ -12,6 +12,7 @@ return {
       typescript = { "eslint_d" },
       javascript = { "eslint_d" },
       json = { "jsonlint" },
+      go = { "golangcilint" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       python = { "pylint" },

@@ -24,11 +24,13 @@ return {
       html = { "prettier" },
       markdown = { "prettier" },
       json = { "prettier" },
+      jsonc = { "prettier" },
       yaml = { "prettier" },
       graphql = { "prettier" },
       lua = { "stylua" },
       python = { "isort", "black" },
       sh = { "shfmt" },
+      go = { "goimports" },
       bash = { "shfmt" },
     },
     format_on_save = {

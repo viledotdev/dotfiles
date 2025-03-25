@@ -125,7 +125,6 @@ return {
     {
       "<leader>tos",
       function()
-        print(obsidianPath)
         require("telescope.builtin").live_grep({
           search_dirs = { obsidianPath },
         })
@@ -145,7 +144,7 @@ return {
     {
       "<leader>to<leader>",
       function()
-        require("telescope.builtin").find_files({})
+        require("telescope.builtin").find_files({ path = obsidianPath })
       end,
       desc = "Obsidian find files",
     },
