@@ -20,6 +20,7 @@ return {
       javascriptreact = { "prettier" },
       typescriptreact = { "prettier" },
       svelte = { "prettier" },
+      astro = { "prettier" },
       css = { "prettier" },
       html = { "prettier" },
       markdown = { "prettier" },

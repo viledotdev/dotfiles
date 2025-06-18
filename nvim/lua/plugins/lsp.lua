@@ -8,8 +8,6 @@ return {
     local diag = vim.diagnostic
     local lsp = vim.lsp
     vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
     vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
     local on_attach = function(_, buffnumber)
       vim.bo[buffnumber].omnifunc = "v:lua.lsp.omnifunc"
@@ -28,6 +26,20 @@ return {
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
     require("neodev").setup()
+    require("lspconfig").astro.setup({
+      cmd = { "astro-ls", "--stdio" },
+      filetypes = { "astro" },
+      root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+      init_options = {
+        typescript = {
+          tsdk = vim.fn.glob(
+            vim.loop.cwd() .. "/node_modules/.pnpm/typescript@*/node_modules/typescript/lib",
+            false,
+            true
+          )[1],
+        },
+      },
+    })
     require("lspconfig").lua_ls.setup({
       on_attach = on_attach,
       capabilities = capabilities,

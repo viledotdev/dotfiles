@@ -11,24 +11,24 @@ return {
       "javascript",
       "markdown",
       "markdown_inline",
-      highlight = {
+    },
+    highlight = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+    },
+    textobjects = {
+      select = {
         enable = true,
-      },
-      indent = {
-        enable = true,
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@conditional.outer",
-            ["ic"] = "@conditional.inner",
-            ["al"] = "@loop.inner",
-            ["il"] = "@loop.inner",
-          },
+        lookahead = true,
+        keymaps = {
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["ac"] = "@conditional.outer",
+          ["ic"] = "@conditional.inner",
+          ["al"] = "@loop.inner",
+          ["il"] = "@loop.inner",
         },
       },
     },
