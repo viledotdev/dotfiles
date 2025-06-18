@@ -11,6 +11,6 @@ return {
     "windwp/nvim-autopairs",
   },
   event = "VeryLazy",
-  main = "config.plugins.cmp",
+  main = "config.plugins.cmp.setup",
   config = true,
 }
