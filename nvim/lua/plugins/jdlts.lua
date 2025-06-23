@@ -5,7 +5,8 @@ return {
     local jdtls = require("jdtls")
     local home = os.getenv("HOME")
     local jdtls_path = home .. "/.cache/jdtls" -- Asegúrate de que este directorio es donde extrajiste JDT LS
-    local workspace_folder = home .. "/.cache/jdtls/workspace"
+    local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+    local workspace_folder = home .. "/.cache/jdtls/workspace/" .. project_name
 
     local config = {
       cmd = {

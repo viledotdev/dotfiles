@@ -8,7 +8,7 @@ alias nvdot='cd ~/Development/dotfiles && nvim'
 alias nvc='cd ~/Development/dotfiles/nvim && nvim'
 #Java
 alias jc='javac'
-alias j='java'
+alias jx='java'
 # Go
 alias got='go test -bench=. -benchmem -cover'
 
