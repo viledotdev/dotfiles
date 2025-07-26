@@ -8,6 +8,7 @@ config = {
 
 	window_background_opacity = 1,
 	enable_tab_bar = false,
+	enable_wayland = false,
 	inactive_pane_hsb = {
 		saturation = 0.75,
 		brightness = 0.45,
