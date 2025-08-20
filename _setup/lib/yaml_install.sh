@@ -6,14 +6,14 @@ ensure_yq() {
 }
 
 _yaml_all_for_pm() {
-  local apps_file="$DOTFILES_DIR/config/apps.yaml"
+  local apps_file="$DOTFILES_DIR/_setup/apps.yaml"
   PM="$PACKAGE_MANAGER" yq -r '
     .apps[] | (.[env(PM)] // .) | select(. != null)
   ' "$apps_file"
 }
 
 install_from_yaml() {
-  local apps_file="$DOTFILES_DIR/config/apps.yaml"
+  local apps_file="$DOTFILES_DIR/_setup/apps.yaml"
   [[ -f $apps_file ]] || {
     echo "ℹ️  No apps.yaml at $apps_file (skipping)"
     return 0
