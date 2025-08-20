@@ -5,24 +5,24 @@ ensure_yq() {
 }
 
 _yaml_all_for_pm() {
-  local apps_file="$DOTFILES_DIR/_setup/apps.yaml" pm="$PACKAGE_MANAGER"
-  yq -r --arg pm "$pm" '
+  local apps_file="$DOTFILES_DIR/config/apps.yaml"
+  PM="$PACKAGE_MANAGER" yq -r '
     .apps
     | to_entries
     | .[].value[]
-    | if type=="string" then .
-      else ( .[$pm] // .name // empty )
+    | if type == "string" then .
+      else ( .[env(PM)] // .all // .name // empty )
       end
     | select(. != null)
   ' "$apps_file"
 }
 
 _yaml_cat_for_pm() {
-  local apps_file="$DOTFILES_DIR/_setup/apps.yaml" pm="$PACKAGE_MANAGER" cat="$1"
-  yq -r --arg pm "$pm" --arg cat "$cat" '
-    .apps[$cat][]?
-    | if type=="string" then .
-      else ( .[$pm] // .name // empty )
+  local apps_file="$DOTFILES_DIR/config/apps.yaml" cat="$1"
+  PM="$PACKAGE_MANAGER" CAT="$cat" yq -r '
+    .apps[env(CAT)][]?
+    | if type == "string" then .
+      else ( .[env(PM)] // .all // .name // empty )
       end
     | select(. != null)
   ' "$apps_file"

@@ -32,3 +32,10 @@ apps:
         pacman: docker,
       }
     - { name: docker-compose, apt: docker-compose, pacman: docker-compose }
+
+  fonts:
+    # Nerd Fonts más usadas (casks del tap homebrew/cask-fonts)
+    - { brew: "homebrew/cask-fonts/font-recursive-mono-nerd-font" }
+    - { brew: "homebrew/cask-fonts/font-jetbrains-mono-nerd-font" }
+    - { brew: "homebrew/cask-fonts/font-fira-code-nerd-font" }
+    - { brew: "homebrew/cask-fonts/font-symbols-only-nerd-font" }
