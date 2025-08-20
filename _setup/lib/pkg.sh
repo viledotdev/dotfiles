@@ -18,7 +18,7 @@ install_package() {
   local app="$1"
   case "$PACKAGE_MANAGER" in
     brew)
-      brew install "$app"
+      brew_install "$app"
       ;;
     apt)
       sudo apt update
@@ -32,6 +32,13 @@ install_package() {
       exit 1
       ;;
   esac
+}
+
+brew_install() {
+  local app="$1"
+  if ! brew install "$app"; then
+    brew install --cask "$app"
+  fi
 }
 
 install_if_missing() {
