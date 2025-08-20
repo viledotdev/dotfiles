@@ -1,6 +1,3 @@
-# Se source-a desde setup.sh
-set -Eeuo pipefail
-
 create_symlink() {
   local target="$1"
   local link="$2"

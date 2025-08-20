@@ -1,6 +1,3 @@
-# Se source-a desde setup.sh
-set -Eeuo pipefail
-
 ensure_zsh_shell() {
   # Evita re-ejecución en bucle
   if [[ ${SETUP_REEXEC_ZSH:-0} == "1" ]]; then

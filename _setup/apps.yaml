@@ -2,21 +2,33 @@ apps:
   cli:
     - fastfetch
     - fzf
+    - ripgrep
+    - starship
+
+  editors:
+    - { name: neovim, brew: neovim, apt: neovim, pacman: neovim }
 
   runtimes:
     - { name: node, brew: node, apt: nodejs, pacman: nodejs }
-    - { name: npm, brew: npm, apt: npm, pacman: npm }
-    - { name: pnpm, brew: pnpm, apt: pnpm, pacman: pnpm }
-    - { name: dotnet, brew: dotnet, apt: dotnet-sdk-8.0, pacman: dotnet-sdk }
-    - { name: java, brew: openjdk, apt: default-jdk, pacman: jdk-openjdk }
+    - { name: pnpm, brew: pnpm, pacman: pnpm }
     - { name: go, brew: go, apt: golang, pacman: go }
     - { name: python, brew: python, apt: python3, pacman: python }
+    - { name: java, brew: openjdk, apt: default-jdk, pacman: jdk-openjdk }
+
+  terminals:
+    - { brew: "homebrew/cask/wezterm" } # macOS (cask)
+
+  wm:
+    - { brew: "nikitabobko/tap/aerospace" } # macOS (tap + cask)
+
+  desktop:
+    - { brew: "raycast" } # macOS (cask)
 
   dev:
-    - { name: docker, brew: docker, apt: docker.io, pacman: docker }
     - {
-        name: docker-compose,
-        brew: docker-compose,
-        apt: docker-compose,
-        pacman: docker-compose,
+        name: docker,
+        brew: "homebrew/cask/docker",
+        apt: docker.io,
+        pacman: docker,
       }
+    - { name: docker-compose, apt: docker-compose, pacman: docker-compose }
