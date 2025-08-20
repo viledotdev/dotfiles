@@ -14,17 +14,17 @@ apps:
 
   # Editor/terminal
   - { brew: neovim, apt: neovim, pacman: neovim }
-  - { brew: homebrew/cask/wezterm }
+  - { brew: wezterm }
 
   # Desktop / WM (macOS)
   - { brew: raycast }
   - { brew: nikitabobko/tap/aerospace }
 
   # Docker (simple)
-  - { brew: homebrew/cask/docker, apt: docker.io, pacman: docker }
+  - { brew: docker, apt: docker.io, pacman: docker }
 
   # Fonts (macOS via cask-fonts)
   - { brew: homebrew/cask-fonts/font-recursive-mono-nerd-font }
-  - { brew: homebrew/cask-fonts/font-jetbrains-mono-nerd-font }
-  - { brew: homebrew/cask-fonts/font-fira-code-nerd-font }
-  - { brew: homebrew/cask-fonts/font-symbols-only-nerd-font }
+  - { brew: font-jetbrains-mono-nerd-font }
+  - { brew: font-fira-code-nerd-font }
+  - { brew: font-symbols-only-nerd-font }
