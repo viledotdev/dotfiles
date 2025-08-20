@@ -6,11 +6,11 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 DOTFILES_DIR="$SCRIPT_DIR"
 
 # --- cargar módulos ---
-source "$DOTFILES_DIR/lib/pkg.sh"
-source "$DOTFILES_DIR/lib/shell.sh"
-source "$DOTFILES_DIR/lib/fs.sh"
-source "$DOTFILES_DIR/lib/apps.sh"
-source "$DOTFILES_DIR/lib/yaml_install.sh"
+source "$DOTFILES_DIR/_setup/lib/pkg.sh"
+source "$DOTFILES_DIR/_setup/lib/shell.sh"
+source "$DOTFILES_DIR/_setup/lib/fs.sh"
+source "$DOTFILES_DIR/_setup/lib/apps.sh"
+source "$DOTFILES_DIR/_setup/lib/yaml_install.sh"
 
 main() {
   PACKAGE_MANAGER="$(detect_package_manager)"

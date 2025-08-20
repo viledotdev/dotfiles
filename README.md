@@ -9,17 +9,16 @@
 ### Install yq
 
 ```
-#MacOS brew install yq
-#Ubuntu/Debian sudo apt update && sudo apt install -y yq
-#Arch sudo pacman -Sy --noconfirm yq
+#MacOS
+brew install yq
+#Ubuntu/Debian
+sudo apt update && sudo apt install -y yq
+#Arch
+sudo pacman -Sy --noconfirm yq
 ```
 
-### Install `zsh` if needed.
+### Install config
 
-```sh
-./_setup/bin/ensure_zsh.sh
-
-# restart and ensure you are on zsh:  echo $SHELL -> /bin/zsh
 ```
-
-
+./setup.sh
+```
