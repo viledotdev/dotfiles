@@ -24,7 +24,7 @@ apps:
   - { brew: docker, apt: docker.io, pacman: docker }
 
   # Fonts (macOS via cask-fonts)
-  - { brew: homebrew/cask-fonts/font-recursive-mono-nerd-font }
+  - { brew: font-recursive-mono-nerd-font }
   - { brew: font-jetbrains-mono-nerd-font }
   - { brew: font-fira-code-nerd-font }
   - { brew: font-symbols-only-nerd-font }
