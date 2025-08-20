@@ -1,4 +1,4 @@
-CONFIG_PATH="$HOME/Development/dotfiles/zsh"
+CONFIG_PATH="$HOME/Development/dotfiles/_zsh"
 # Funciones
 for f in "$CONFIG_PATH/functions/"*.zsh; do
   source "$f"

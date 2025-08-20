@@ -1,10 +1,10 @@
 return {
   "mfussenegger/nvim-jdtls",
-  ft = { "java" }, -- Se carga únicamente cuando se abre un archivo Java
+  ft = { "java" },
   config = function()
     local jdtls = require("jdtls")
     local home = os.getenv("HOME")
-    local jdtls_path = home .. "/.cache/jdtls" -- Asegúrate de que este directorio es donde extrajiste JDT LS
+    local jdtls_path = home .. "/.cache/jdtls"
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
     local workspace_folder = home .. "/.cache/jdtls/workspace/" .. project_name
 
@@ -23,9 +23,9 @@ return {
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
         "-jar",
-        jdtls_path .. "/plugins/org.eclipse.equinox.launcher_1.6.1000.v20250227-1734.jar", -- Actualiza el nombre según la versión que tengas
+        jdtls_path .. "/plugins/org.eclipse.equinox.launcher_1.6.1000.v20250227-1734.jar",
         "-configuration",
-        jdtls_path .. "/config_mac_arm", -- O la carpeta de configuración que corresponda a tu SO
+        jdtls_path .. "/config_mac_arm",
         "-data",
         workspace_folder,
       },
@@ -34,7 +34,6 @@ return {
         java = {
           signatureHelp = { enabled = true },
           contentProvider = { preferred = "fernflower" },
-          -- Puedes agregar más configuraciones específicas de Java aquí
         },
       },
       init_options = {

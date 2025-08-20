@@ -1,4 +1,3 @@
----@diagnostic disable: param-type-mismatch
 local obsidianPath = "/Users/victor/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents/Vile/notes"
 return {
   "nvim-telescope/telescope.nvim",

@@ -3,7 +3,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # Neovim
-alias nv='nvim'
 alias nvdot='cd ~/Development/dotfiles && nvim'
 alias nvc='cd ~/Development/dotfiles/nvim && nvim'
 #Java
@@ -11,6 +10,8 @@ alias jc='javac'
 alias jx='java'
 # Go
 alias got='go test -bench=. -benchmem -cover'
+#Python
+alias py='python3'
 
 # Brew
 alias updall='brew update && brew upgrade'

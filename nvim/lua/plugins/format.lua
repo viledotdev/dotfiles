@@ -22,6 +22,7 @@ return {
       svelte = { "prettier" },
       astro = { "prettier" },
       css = { "prettier" },
+      cs = { "csharpier" },
       html = { "prettier" },
       markdown = { "prettier" },
       json = { "prettier" },

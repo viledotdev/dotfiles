@@ -75,12 +75,13 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 
-cmd-alt-m = 'focus-monitor --wrap-around next'
-cmd-alt-w = 'move-workspace-to-monitor --wrap-around next'
+#Focus monitor shortcuts
+cmd-alt-m = 'focus-monitor main'
+cmd-alt-s = 'focus-monitor secondary'
+cmd-alt-b = 'focus-monitor built-in'
 
 alt-0 = 'workspace-back-and-forth'
-alt-shift-0 = 'move-workspace-to-monitor --wrap-around next'
-ctrl-semicolon = 'mode service'
+ctrl-esc = 'mode service'
 
 [workspace-to-monitor-force-assignment]
 
