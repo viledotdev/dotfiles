@@ -11,6 +11,7 @@ apps:
   - { brew: go, apt: golang, pacman: go }
   - { brew: python, apt: python3, pacman: python }
   - { brew: openjdk, apt: default-jdk, pacman: jdk-openjdk }
+  - { brew: dotnet-sdk, apt: dotnet-sdk-8.0, pacman: dotnet-sdk }
 
   # Editor/terminal
   - { brew: neovim, apt: neovim, pacman: neovim }
