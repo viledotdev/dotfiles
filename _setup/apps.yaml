@@ -4,6 +4,7 @@ apps:
   - fzf
   - ripgrep
   - starship
+  - { brew: uv }
 
   # Runtime manager
   - { brew: asdf }
