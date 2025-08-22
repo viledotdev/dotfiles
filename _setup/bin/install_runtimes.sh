@@ -127,15 +127,17 @@ main() {
   if command -v corepack > /dev/null 2>&1; then
     corepack enable || true
     corepack prepare pnpm@latest --activate || true
+    asdf reshim nodejs || true
   fi
 
   asdf reshim || true
   log ""
-  log "✅ Runtimes instalados (lo que haya podido)."
+  log "✅ Runtimes instalados."
   asdf current || true
   log ""
-  log "which -a node java python go dotnet:"
+  log "which -a node pnpm java python go dotnet:"
   which -a node || true
+  which -a pnpm || true
   which -a java || true
   which -a python || true
   which -a go || true
