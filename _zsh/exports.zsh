@@ -1,19 +1,15 @@
 # ~/.config/zsh/exports.zsh
 
-# --- editor
 export EDITOR='nvim'
 
-# --- Homebrew (añade /opt/homebrew/{bin,sbin} al PATH)
 if [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# --- asdf (shims + funciones)
 if [[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
 
-# --- de-dup del PATH y helper para preprender rutas
 typeset -U path
 path_prepend() {
   local i
@@ -22,30 +18,39 @@ path_prepend() {
   done
 }
 
-# --- asdf primero en PATH (shims y bin)
 ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
 path_prepend "$ASDF_DIR/shims" "$ASDF_DIR/bin"
 
-# --- rutas útiles de usuario
 export GOPATH="${GOPATH:-$HOME/go}"
 path_prepend "$HOME/.local/bin" "$HOME/.dotnet/tools" "$GOPATH/bin" "$HOME/.bin"
 
-# --- JAVA_HOME desde asdf (no metas $JAVA_HOME/bin en PATH)
 if command -v asdf >/dev/null 2>&1; then
   asdf_java_dir="$(asdf where java 2>/dev/null || true)"
   [[ -n "$asdf_java_dir" ]] && export JAVA_HOME="$asdf_java_dir"
 fi
 
-# --- guard final: limpia entradas java que se hayan colado y reafirma shims
-for d in "$JAVA_HOME/bin" /opt/homebrew/opt/openjdk/bin; do
-  [[ -n "$d" ]] && path=(${path:#$d})
+_zsh_path_sanitized=()
+for d in $path; do
+  case "$d" in
+    "$JAVA_HOME"/bin) continue ;;
+    /opt/homebrew/opt/openjdk/bin) continue ;;
+    /Library/Java/JavaVirtualMachines/*/Contents/Home/bin) continue ;;
+    $HOME/.asdf/installs/java/*/bin) continue ;;
+  esac
+  _zsh_path_sanitized+=("$d")
 done
+path=($_zsh_path_sanitized)
+
 if [[ -d "$ASDF_DIR/shims" ]]; then
   path=("$ASDF_DIR/shims" ${path:#$ASDF_DIR/shims})
 fi
 if [[ -d "$ASDF_DIR/bin" ]]; then
   path=("$ASDF_DIR/bin" ${path:#$ASDF_DIR/bin})
 fi
+unset _zsh_path_sanitized
+
+# --- DEBUG 
+[[ -n "$ZSH_DEBUG_PATH" ]] && { print -l $path | nl -ba; which -a java; }
 
 # --- PNPM standalone (solo si NO usas Corepack)
 # export PNPM_HOME="$HOME/Library/pnpm"
