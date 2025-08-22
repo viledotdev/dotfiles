@@ -4,17 +4,15 @@
 
 - **zsh** as shell
 - **sudo** available (Linux)
+- **brew** installed (Homebrew (MacOS))
 - **yq** installed for YAML on CLI
+- **git** installed
 
-### Install yq
+### Install yq and git
 
 ```
 #MacOS
-brew install yq
-#Ubuntu/Debian
-sudo apt update && sudo apt install -y yq
-#Arch
-sudo pacman -Sy --noconfirm yq
+brew install yq git
 ```
 
 ### Install config

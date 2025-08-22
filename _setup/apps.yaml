@@ -5,13 +5,8 @@ apps:
   - ripgrep
   - starship
 
-  # Runtimes
-  - { brew: node, apt: nodejs, pacman: nodejs }
-  - { brew: pnpm, pacman: pnpm }
-  - { brew: go, apt: golang, pacman: go }
-  - { brew: python, apt: python3, pacman: python }
-  - { brew: openjdk, apt: default-jdk, pacman: jdk-openjdk }
-  - { brew: dotnet-sdk, apt: dotnet-sdk-8.0, pacman: dotnet-sdk }
+  # Runtime manager
+  - { brew: asdf }
 
   # Editor/terminal
   - { brew: neovim, apt: neovim, pacman: neovim }
