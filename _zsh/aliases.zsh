@@ -12,6 +12,7 @@ alias jx='java'
 alias got='go test -bench=. -benchmem -cover'
 #Python
 alias py='python3'
+alias activate="source .venv/bin/activate"
 
 # Brew
 alias updall='brew update && brew upgrade'
