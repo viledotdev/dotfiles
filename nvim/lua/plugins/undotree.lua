@@ -20,9 +20,6 @@ return {
       ["q"] = "quit",
     },
   },
-  config = function(_, opts)
-    require("undotree").setup(opts)
-  end,
   keys = { -- load the plugin only when using it's keybinding:
     { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
   },

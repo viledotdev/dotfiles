@@ -36,6 +36,7 @@ return {
   config = function(opts)
     require("telescope").setup(opts)
     require("telescope").load_extension("fzf")
+    require("telescope").load_extension("luasnip")
   end,
   keys = {
     -- Generic
@@ -146,6 +147,13 @@ return {
         require("telescope.builtin").find_files({ path = obsidianPath })
       end,
       desc = "Obsidian find files",
+    },
+    {
+      "<leader>ts",
+      function()
+        require("telescope").extensions.luasnip.luasnip()
+      end,
+      desc = "Search available snippets",
     },
     -- Git
     {

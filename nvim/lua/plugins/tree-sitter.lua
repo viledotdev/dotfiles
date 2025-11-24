@@ -10,6 +10,8 @@ return {
       "c_sharp",
       "luadoc",
       "javascript",
+      "python",
+      "go",
       "markdown",
       "markdown_inline",
     },
