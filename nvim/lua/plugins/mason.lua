@@ -5,5 +5,5 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   build = ":MasonUpdate",
-  config = function() end,
+  config = true,
 }
