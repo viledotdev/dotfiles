@@ -1,6 +1,7 @@
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
+  main = "config.plugins.format",
   opts = {
     formatters = {
       shfmt = {
@@ -32,6 +33,7 @@ return {
       lua = { "stylua" },
       python = { "isort", "black" },
       sh = { "shfmt" },
+      rust = { "rustfmt" },
       go = { "goimports" },
       bash = { "shfmt" },
     },
@@ -41,12 +43,4 @@ return {
       timeout_ms = 500,
     },
   },
-  config = function(_, opts)
-    local conform = require("conform")
-
-    conform.setup(opts)
-    vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-      conform.format(opts.format_on_save)
-    end, { desc = "Format file or range (in visual mode)" })
-  end,
 }

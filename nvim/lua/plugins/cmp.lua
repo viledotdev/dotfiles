@@ -12,5 +12,4 @@ return {
   },
   event = "VeryLazy",
   main = "config.plugins.cmp.setup",
-  config = true,
 }

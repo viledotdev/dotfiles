@@ -6,6 +6,7 @@ return {
   main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
+      "rust",
       "lua",
       "c_sharp",
       "luadoc",
