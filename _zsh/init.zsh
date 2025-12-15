@@ -14,3 +14,5 @@ source "$CONFIG_PATH/plugins.zsh"
 # Llamadas finales
 init_ssh_agent
 init_starship
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

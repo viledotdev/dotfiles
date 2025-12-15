@@ -1,5 +1,7 @@
 # --- editor
 export PATH="$HOME/.bin:$PATH"
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"
 
 export EDITOR='nvim'
 
@@ -12,6 +14,7 @@ fi
 if [[ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
+
 
 # De-dup and helper PATH
 typeset -U path
