@@ -16,19 +16,12 @@ M.default = {
     end
   end, { "i", "s" }),
   ["<up>"] = cmp.mapping.select_prev_item(),
-  ["<tab>"] = cmp.mapping.confirm({ select = true }),
-  ["<c-space>"] = cmp.mapping.complete(),
+  ["<CR>"] = cmp.mapping.confirm({ select = true }),
+  ["<M-Space>"] = cmp.mapping.complete(),
 }
 
 M.cmdline = {
   search = cmp.mapping.preset.cmdline({
-    ["<C-z>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        cmp.complete()
-      end
-    end, { "c" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()

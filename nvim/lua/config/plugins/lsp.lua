@@ -43,12 +43,16 @@ function M.setup()
     root_dir = util.root_pattern("pyproject.toml", "uv.lock", ".git"),
   })
   lspconfig.rust_analyzer.setup({
+    cmd ={"rust-analyzer"},
     capabilities = capabilities,
     on_attach = on_attach,
     settings= {
       ["rust-analyzer"] = {
         cargo = { allFeatures=true},
-        checkOnSave= {command = "clippy"},
+        checkOnSave= true,
+        check ={
+          command = "clippy"
+        }
       }
     }
   })
