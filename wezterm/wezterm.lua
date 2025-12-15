@@ -27,7 +27,7 @@ config = {
 	},
 	color_scheme = "Tokio Night",
 	font = wezterm.font("RecMonoLinear Nerd Font Mono"),
-	font_size = 16.0,
+	font_size = 24.0,
 	line_height = 1.25,
 
 	-- leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
