@@ -1,13 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   lazy = false,
-  build = ":TSUpdate",
-  config = function()
-    require("nvim-treesitter").setup({
-      install_dir = vim.fn.stdpath("data") .. "/site",
-    })
-
-    -- Install parsers
+  build = function()
     local parsers = {
       "rust",
       "lua",
@@ -26,6 +20,11 @@ return {
       "bash",
     }
     require("nvim-treesitter").install(parsers)
+  end,
+  config = function()
+    require("nvim-treesitter").setup({
+      install_dir = vim.fn.stdpath("data") .. "/site",
+    })
 
     -- Enable treesitter highlighting for all filetypes with parsers
     vim.api.nvim_create_autocmd("FileType", {
