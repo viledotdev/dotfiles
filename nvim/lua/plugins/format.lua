@@ -1,18 +1,10 @@
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
-  main = "config.plugins.format",
   opts = {
     formatters = {
       shfmt = {
-        args = {
-          "-i",
-          "2", -- Cambia el número para ajustar la cantidad de espacios de indentación
-          "-ci", -- Indentación en listas de comandos dentro de bucles
-          "-bn", -- Llaves en la misma línea
-          "-sr", -- Simplificar redirecciones
-          "-s", -- Ordenar imports
-        },
+        args = { "-i", "2", "-ci", "-bn", "-sr", "-s" },
       },
     },
     formatters_by_ft = {
@@ -41,6 +33,20 @@ return {
       lsp_fallback = true,
       async = false,
       timeout_ms = 500,
+    },
+  },
+  keys = {
+    {
+      "<leader>mp",
+      function()
+        require("conform").format({
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
+        })
+      end,
+      mode = { "n", "v" },
+      desc = "Format file or range",
     },
   },
 }
