@@ -1,9 +1,13 @@
 # --- editor
+export EDITOR='nvim'
+
 export PATH="$HOME/.bin:$PATH"
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
-export EDITOR='nvim'
+# opencode
+export PATH="$HOME/.zshrc:$PATH"
+#local
+export PATH="$HOME/.local/bin:$PATH"
 
 # --- Homebrew 
 if [[ -x /opt/homebrew/bin/brew ]]; then

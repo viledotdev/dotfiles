@@ -16,3 +16,6 @@ init_ssh_agent
 init_starship
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# opencode
+export PATH=/Users/victor/.opencode/bin:$PATH
